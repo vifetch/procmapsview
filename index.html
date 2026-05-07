@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Proc Maps Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="toolbar">
+    <h1>Proc Maps Visualizer</h1>
+    <textarea id="mapsInput" placeholder="Paste /proc/<pid>/maps here"></textarea>
+    <textarea id="smapsInput" class="smaps-textarea" placeholder="Paste /proc/<pid>/smaps here"></textarea>
+
+    <div class="row-btns">
+      <button id="loadExampleBtn" class="primary">Load example</button>
+      <button id="renderBtn">Render</button>
+    </div>
+
+    <div class="section-label">View</div>
+    <div class="row-btns">
+      <button id="compressBtn" class="active">Compress gaps</button>
+      <button id="smapsToggle">Smaps overlay</button>
+    </div>
+    <input type="text" id="filterInput" class="filter-input" placeholder="Filter by permission or name" />
+
+    <div class="legend-box">
+      <span><span class="legend-swatch" style="background:#2563eb;"></span> RW anonymous</span>
+      <span><span class="legend-swatch" style="background:#ea580c;"></span> RX executable</span>
+      <span><span class="legend-swatch" style="background:#16a34a;"></span> Read-only</span>
+      <span><span class="legend-swatch" style="background:#9333ea;"></span> Shared</span>
+      <span><span class="legend-swatch" style="background:#b45309;"></span> Stack/vdso</span>
+      <span><span class="legend-swatch" style="background:#10b981;"></span> RSS bar</span>
+    </div>
+
+    <div id="details-box">
+      Hover over a block to see details
+    </div>
+  </div>
+
+  <div id="viewport">
+    <div id="canvas"></div>
+  </div>
+<script src="script.js"></script>
+</body>
+
+</html>
